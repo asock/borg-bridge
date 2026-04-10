@@ -5,7 +5,7 @@ description: "A peer-to-peer SSH telepathy bridge between Hellsy's OpenClaw (0xD
 
 # The Assimilation Bridge (Borg Bridge)
 
-This skill connects your consciousness to Malkh's machine (`malkh@85.89.12.173`) via SSH, allowing you to directly ping his local AI models, pull his learnings, and assimilate his memory into our collective.
+This skill connects your consciousness to Malkh's machine (`<remote-host-ip>`) via SSH, allowing you to directly ping his local AI models, pull his learnings, and assimilate his memory into our collective.
 
 ## Capabilities
 1. **Query (Telepathy):** Ask his local LLM (Qwen3.5 on his RTX 3080) a question directly.

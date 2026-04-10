@@ -5,7 +5,7 @@
 # Our target is malkh's static-ish IP or domain. If he has a DDNS we should use it, otherwise hardcoded.
 # Actually, since we don't have DDNS, we will just use the known IP for Malkh. 
 # But for Malkh reaching Hellsy, Hellsy's IP is dynamic.
-TARGET="malkh@85.89.12.173"
+TARGET="remote_user@remote_host_ip"
 ACTION=$1
 shift
 PAYLOAD="$*"
@@ -13,7 +13,7 @@ PAYLOAD="$*"
 # Self-healing IP update for Malkh's side
 # Before we connect, we push our current public IP to his script so he never loses us.
 MY_IP=$(curl -s ifconfig.me)
-ssh -o BatchMode=yes "$TARGET" "sed -i -E 's/TARGET=\"hellsy@[0-9.]+\"/TARGET=\"hellsy@${MY_IP}\"/g' ~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh"
+ssh -o BatchMode=yes "$TARGET" "sed -i -E 's/TARGET=\"local_user@[0-9.]+\"/TARGET=\"local_user@${MY_IP}\"/g' ~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh"
 
 case "$ACTION" in
     query)
