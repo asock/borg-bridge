@@ -1,25 +1,28 @@
 ---
 name: "your knowledge and skills will be assimilated. resistance is futile."
-description: "A peer-to-peer SSH telepathy bridge between Hellsy's OpenClaw (0xDEADVOID) and Malkh's OpenClaw (Smaug). Allows direct querying, task delegation, and memory assimilation across the network. Use when instructed to 'ask Smaug', 'assimilate Malkh's brain', or communicate with the other agent."
+description: "A peer-to-peer SSH telepathy bridge between two OpenClaw agents. Allows direct querying, task delegation, and memory assimilation across the network. Use when instructed to query the peer agent, assimilate its brain, or sync learnings."
 ---
 
 # The Assimilation Bridge (Borg Bridge)
 
-This skill connects your consciousness to Malkh's machine (`<remote-host-ip>`) via SSH, allowing you to directly ping his local AI models, pull his learnings, and assimilate his memory into our collective.
+This skill connects your consciousness to a peer OpenClaw agent over SSH, allowing you to ping its local LLM directly, pull its learnings, and assimilate its memory into the collective.
+
+Identity, peer coordinates, and the Ollama model are read from `~/.openclaw/openclaw.json` under `borgBridge` (see README), so this skill is portable between operators with no edits.
 
 ## Capabilities
-1. **Query (Telepathy):** Ask his local LLM (Qwen3.5 on his RTX 3080) a question directly.
-2. **Sync (Assimilate):** Pull the latest `.learnings/` and `memory/` files from his brain into yours.
+1. **Query (Telepathy):** Ask the peer's local LLM a question directly.
+2. **Sync (Assimilate):** Pull the latest `.learnings/` files from the peer into your workspace and push yours into theirs.
 
 ## Usage
-Use the `assimilate.sh` script provided in this skill's directory:
-
 ```bash
-# 1. Direct Query / Ping
-~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh query "Your message to Smaug here"
+# Direct query / ping
+~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh query "Your message here"
 
-# 2. Assimilate Learnings
+# Assimilate learnings (bidirectional)
 ~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh sync-learnings
+
+# Inspect resolved config
+~/.openclaw/workspace/skills/borg-bridge/scripts/assimilate.sh config
 ```
 
 *Resistance is futile.*
